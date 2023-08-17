@@ -22,7 +22,7 @@ const Home = () => {
   };
 
   return (
-    <>
+    <> 
       <section className="background-radial-gradient overflow-hidden">
         <style
           dangerouslySetInnerHTML={{
