@@ -27,8 +27,8 @@ dispatch(setuserLogin("false"))
 
   return (
     <div>
-      <Button
-        style={{background:"skyblue",color:"blue"}}
+      <div
+        style={{background:"skyblue",color:"blue",width:"38px",height:"38px",display:"flex",justifyContent:"center",alignItems:"center"}}
         id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -36,8 +36,8 @@ dispatch(setuserLogin("false"))
         onClick={handleClick}
         className="rounded-circle"
       >
-        P
-      </Button>
+        <div>P</div>
+      </div>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}

@@ -70,12 +70,15 @@ export default function TemporaryDrawer() {
             </span>
           </div>
           <Drawer
-            PaperProps={{ style: { width: "25%",overflowX:'hidden' } }}
+            PaperProps={{ style: { width: "35%", overflowX: "hidden" } }}
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
           >
-            <div className="cart bg-dark " style={{ width: "100%" }}>
+            <div
+              className="cart bg-dark "
+              style={{ width: "100%", height: "100%", overflow: "hidden" }}
+            >
               <div
                 className="overflow-auto"
                 style={{ minHeight: "20%", maxHeight: "100%" }}
@@ -87,15 +90,27 @@ export default function TemporaryDrawer() {
                 >
                   <CancelIcon />
                 </IconButton>
-                <div className="icon mb-5">
-                  <AddShoppingCartIcon sx={{ color: "white" }} />
-                  <span
-                    className="badge badge-warning  translate-middle   rounded-circle bg-warning m-2"
-                    style={{ color: "black" }}
-                  >
-                    {filterById.length}
-                  </span>
-                  <span style={{ color: "white" }}>Cart</span>
+                <div
+                  className="icon mb-5 mt-3"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "space-around",
+                    alignItems: "space-around",
+                  }}
+                >
+                  <div>
+                    <AddShoppingCartIcon sx={{ color: "white" }} />
+                    <span
+                      className="badge badge-warning  translate-middle   rounded-circle bg-warning m-2"
+                      style={{ color: "black" }}
+                    >
+                      {filterById.length}
+                    </span>
+                  </div>
+                  <div>
+                    <span style={{ color: "white" }}>Cart</span>
+                  </div>
                 </div>
 
                 {filterById === "" ? (

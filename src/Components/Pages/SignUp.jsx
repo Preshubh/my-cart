@@ -49,8 +49,8 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <section className="background-radial-gradient overflow-hidden">
+    <div  style={{width:'100%',height:'100%',  position:'fixed'}} className="background-radial-gradient overflow-hidden">
+      <section>
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -199,7 +199,7 @@ const SignUp = () => {
         </div>
         <ToastContainer theme="colored" />
       </section>
-    </>
+    </div>
   );
 };
 

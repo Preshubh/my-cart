@@ -49,10 +49,10 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div  style={{width:'100%',height:'100%',  position:'fixed'}} className="background-radial-gradient overflow-hidden">
       <ToastContainer theme="colored" />
 
-      <section className="background-radial-gradient overflow-hidden">
+      <section>
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -169,7 +169,7 @@ const Login = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 

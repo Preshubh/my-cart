@@ -24,7 +24,6 @@ const DashBoard = () => {
   const [productList, setProductList] = useState([]);
   const [filterProductList, setFilterProductList] = useState([]);
   const [filterTitle, setFilterTitle] = useState("");
-
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
@@ -135,7 +134,7 @@ const DashBoard = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ height: "100vh" }}>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div style={{ width: "100%" }}>
           <div className="collapse navbar-collapse" id="navbarButtonsExample">
@@ -153,21 +152,32 @@ const DashBoard = () => {
             />
             <div
               className="d-flex align-items-end"
-              style={{ width: "20%", justifyContent: "space-around" }}
+              style={{ width: "20%", justifyContent: "flex-end" }}
             >
-              <Tab />
+              <div
+                style={{
+                  marginRight: "30px",
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
+                <Tab />
 
-              {LoginName != null ? (
-                <Profile ProfileName={LoginName[0].FirstName} />
-              ) : (
-                ""
-              )}
+                {LoginName != null ? (
+                  <Profile ProfileName={LoginName[0].FirstName} />
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
           </div>
         </div>
       </nav>
 
-      <div className="Dashboard d-flex position-relative">
+      <div
+        className="Dashboard d-flex position-relative"
+        style={{ height: "100vh", overflowY: "scroll" }}
+      >
         <div className="filter-area m-2" style={{ width: "20%" }}>
           <div
             className="category"
@@ -309,7 +319,7 @@ const DashBoard = () => {
 
         <ToastContainer theme="colored" />
       </div>
-      <footer className="bg-dark text-white text-center py-3">
+      <footer className="bg-dark text-white text-center py-3 fixed-bottom-sticky">
         <div className="container">
           <p>
             &copy; {new Date().getFullYear()} Your Company. All rights reserved.
