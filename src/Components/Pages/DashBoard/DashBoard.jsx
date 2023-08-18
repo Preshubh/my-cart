@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, Suspense, lazy } from "react";
-import { setaddCart } from "../Redux/Slice/Slice";
+import { setaddCart } from "../../Redux/Slice/Slice";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Button,
@@ -12,11 +12,11 @@ import {
 } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Profile from "../Core/Profile";
-import LazyloadingData from "../Core/LazyloadingData";
-import Tab from "../Core/Tab";
+import Profile from "../../Core/Profile";
+import LazyloadingData from "../../Core/LazyloadingData";
+import Tab from "../../Core/Tab";
 
-const Card = lazy(() => import("../Core/Card"));
+const Card = lazy(() => import("../../Core/Card"));
 
 const DashBoard = () => {
   const loginId = useSelector((state) => state.Product.value.loginData);

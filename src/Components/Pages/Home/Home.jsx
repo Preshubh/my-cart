@@ -6,11 +6,11 @@ const Home = () => {
   const navigate = useNavigate();
 
   const SignUpClick = () => {
-    navigate("SignUp");
+    navigate("signup");
   };
 
   const LoginClick = () => {
-    navigate("Login");
+    navigate("login");
   };
 
   const ClearClick = () => {

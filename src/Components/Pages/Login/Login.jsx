@@ -2,13 +2,18 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLoginData, setuserLogin } from "../Redux/Slice/Slice";
+import { setLoginData, setuserLogin } from "../../Redux/Slice/Slice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { ErrorMessage } from "@hookform/error-message";
 
 const Login = () => {
-  const { register, handleSubmit, reset,formState: { errors } } = useForm();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const signUpData = JSON.parse(localStorage.getItem("signUp"));
@@ -36,20 +41,23 @@ const Login = () => {
       toast.error("email is not registered");
     }
   };
-   useEffect(() => {
+  useEffect(() => {
     const registerData = JSON.parse(localStorage.getItem("register"));
     if (registerData === true) {
       toast.success("successfully Registered ");
       localStorage.setItem("register", "false");
     }
-   }, []);
+  }, []);
 
   const cancel = () => {
-    navigate("/signUp");
+    navigate("/signup");
   };
 
   return (
-    <div  style={{width:'100%',height:'100%',  position:'fixed'}} className="background-radial-gradient overflow-hidden">
+    <div
+      style={{ width: "100%", height: "100%", position: "fixed" }}
+      className="background-radial-gradient overflow-hidden"
+    >
       <ToastContainer theme="colored" />
 
       <section>
@@ -105,12 +113,12 @@ const Login = () => {
                             Email address
                           </label>
                           <ErrorMessage
-                          errors={errors}
-                          name="Email"
-                          render={({ message }) => (
-                            <p className="text-danger">{message}</p>
-                          )}
-                        />
+                            errors={errors}
+                            name="Email"
+                            render={({ message }) => (
+                              <p className="text-danger">{message}</p>
+                            )}
+                          />
                         </div>
                         <div className="form-outline mb-4">
                           <input
@@ -128,26 +136,33 @@ const Login = () => {
                             Password
                           </label>
                           <ErrorMessage
-                          errors={errors}
-                          name="Password"
-                          render={({ message }) => (
-                            <p className="text-danger">{message}</p>
-                          )}
-                        />
+                            errors={errors}
+                            name="Password"
+                            render={({ message }) => (
+                              <p className="text-danger">{message}</p>
+                            )}
+                          />
                         </div>
-                        <div className="pt-1 mb-4" style={{display:"flex",justifyContent:"space-between"}}>
-                          <button
-                            className="btn btn-dark btn-lg btn-block"
-                            type="submit"
-                          >
-                            Sign in
-                          </button>
+                        <div
+                          className="pt-1 mb-4"
+                          style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                          }}
+                        >
                           <button
                             className="btn btn-dark btn-lg btn-block"
                             type="button"
                             onClick={() => cancel()}
                           >
                             Cancel
+                          </button>
+
+                          <button
+                            className="btn btn-dark btn-lg btn-block"
+                            type="submit"
+                          >
+                            Sign in
                           </button>
                         </div>
 
