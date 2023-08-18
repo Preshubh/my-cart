@@ -2,16 +2,15 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const Home = () => {
   const navigate = useNavigate();
 
   const SignUpClick = () => {
-    navigate("SignUp");
+    navigate("signup");
   };
 
   const LoginClick = () => {
-    navigate("Login");
+    navigate("login");
   };
 
   const ClearClick = () => {
@@ -22,8 +21,8 @@ const Home = () => {
   };
 
   return (
-    <> 
-      <section className="background-radial-gradient overflow-hidden">
+    <div  style={{width:'100%',height:'100%',  position:'fixed'}} className="background-radial-gradient overflow-hidden">
+      <section>
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -92,7 +91,7 @@ const Home = () => {
         </div>
         <ToastContainer theme="colored" />
       </section>
-    </>
+    </div>
   );
 };
 

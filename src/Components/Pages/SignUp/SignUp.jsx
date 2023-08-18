@@ -11,7 +11,7 @@ const SignUp = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors }
+    formState: { errors },
   } = useForm();
 
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const SignUp = () => {
       Data.push(obj2);
       localStorage.setItem("signUp", JSON.stringify(Data));
       localStorage.setItem("register", "true");
-      navigate("/Login");
+      navigate("/login");
       reset();
     }
   };
@@ -49,8 +49,11 @@ const SignUp = () => {
   };
 
   return (
-    <>
-      <section className="background-radial-gradient overflow-hidden">
+    <div
+      style={{ width: "100%", height: "100%", position: "fixed" }}
+      className="background-radial-gradient overflow-hidden"
+    >
+      <section>
         <style
           dangerouslySetInnerHTML={{
             __html:
@@ -82,7 +85,7 @@ const SignUp = () => {
                             pattern: {
                               value: /^[A-Za-z\s]*$/i,
                               message: "Please Enter a Valid Name",
-                          },
+                            },
                           })}
                         />
                         <label className="form-label" htmlFor="form3Example1">
@@ -108,7 +111,7 @@ const SignUp = () => {
                             pattern: {
                               value: /^[A-Za-z\s]*$/i,
                               message: "Please Enter a Valid Name",
-                          },
+                            },
                           })}
                         />
                         <label className="form-label" htmlFor="form3Example2">
@@ -134,7 +137,7 @@ const SignUp = () => {
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                           message: "Please Enter a Valid Email",
-                      },
+                        },
                       })}
                     />
 
@@ -142,12 +145,12 @@ const SignUp = () => {
                       Email address
                     </label>
                     <ErrorMessage
-                          errors={errors}
-                          name="Email"
-                          render={({ message }) => (
-                            <p className="text-danger">{message}</p>
-                          )}
-                        />
+                      errors={errors}
+                      name="Email"
+                      render={({ message }) => (
+                        <p className="text-danger">{message}</p>
+                      )}
+                    />
                   </div>
                   <div className="form-outline mb-4">
                     <input
@@ -158,38 +161,39 @@ const SignUp = () => {
                         required: "Password is Required",
                         pattern: {
                           value:
-                              /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i,
+                            /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/i,
                           message:
-                              "Please Enter a Valid Password,Minimum eight characters, at least one letter, one number and one special character.",
-                      },
+                            "Please Enter a Valid Password,Minimum eight characters, at least one letter, one number and one special character.",
+                        },
                       })}
                     />
                     <label className="form-label" htmlFor="form3Example4">
                       Password
                     </label>
                     <ErrorMessage
-                          errors={errors}
-                          name="Password"
-                          render={({ message }) => (
-                            <p className="text-danger">{message}</p>
-                          )}
-                        />
+                      errors={errors}
+                      name="Password"
+                      render={({ message }) => (
+                        <p className="text-danger">{message}</p>
+                      )}
+                    />
                   </div>
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-block mb-4"
-                    >
-                      Sign up
-                    </button>
                     <button
                       type="button"
                       className="btn btn-primary btn-block mb-4"
                       onClick={() => cancel()}
                     >
                       Cancel
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-block mb-4"
+                    >
+                      Sign up
                     </button>
                   </div>
                 </form>
@@ -199,7 +203,7 @@ const SignUp = () => {
         </div>
         <ToastContainer theme="colored" />
       </section>
-    </>
+    </div>
   );
 };
 
